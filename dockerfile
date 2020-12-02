@@ -142,7 +142,8 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libcurl4-openssl-dev \
   libssl-dev \
   zlib1g-dev \
-#  # install Java (dependencies for rJava)
+  libpoppler-cpp-dev \
+# install Java (dependencies for rJava)
   default-jre \
   default-jdk  \
   libbz2-dev \
