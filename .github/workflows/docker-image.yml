@@ -15,4 +15,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file hw_dockerfile --tag my-image-name:$(date +%s)
+#      run: docker build . --file hw_dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file hw_dockerfile --tag jamamel/test1
+    - name: Login to DockerHub Registry
+      run: echo ${{ secrets.DOCKERHUB_PW }} | docker login -u ${{ secrets.DOCKERHUB_USR }} --password-stdin
+    - name: Push the tagged Docker image
+      run: docker push jamamel/test1

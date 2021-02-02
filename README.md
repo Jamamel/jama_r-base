@@ -8,10 +8,7 @@
 
 ## Quickstart
 
-    docker run jamamel/jama_r-base:3.6.3
-    docker run --rm -p 8787:8787 -e USER=rstudio -e PASSWORD=yourpasswordhere jamamel/jama_rstudio:3.6.3
-
-Visit `localhost:8787` in your browser and log in with username `rstudio` and the password you set. **NB: Setting a password is now REQUIRED.**  Container will error otherwise.
+    docker run -it --name r_base jamamel/jama_r-base:3.6.3
 
 
 ## Common configuration options:
@@ -24,23 +21,6 @@ Visit `localhost:8787` in your browser and log in with username `rstudio` and th
 Link a local volume (in this example, the current working directory, `$(pwd)`) to the rstudio container:
 
     docker run -d -p 8787:8787 -v $(pwd):/home/rstudio -e PASSWORD=yourpasswordhere jamamel/jama_rstudio:3.6.3
-
-### Bypassing the authentication step
-
-**Warning: use only in a secure environment**.  Do not use this approach on an
-AWS or other cloud machine with a publicly accessible IP address. 
-
-Simply set the environmental variable `DISABLE_AUTH=true`, e.g.
-
-```
-docker run --rm \
-  -p 127.0.0.1:8787:8787 \
-  -e DISABLE_AUTH=true \
-  jamamel/jama_rstudio:3.6.3
-```
-
-Navigate to <http://localhost:8787> and you should be logged into RStudio as
-the `rstudio` user without needing a password.
 
 
 #### Access a root shell for a running `rstudio` container instance
