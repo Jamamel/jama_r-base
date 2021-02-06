@@ -18,11 +18,11 @@
 
 ### Give the user root permissions (add to sudoers)
 
-    docker run -it -e ROOT=TRUE --name r_base jamamel/jama_r-base:3.6.
+    docker run -it -e ROOT=TRUE --name r_base jamamel/jama_r-base:3.6.3
 
 Link a local volume (in this example, the current working directory, `$(pwd)`) to the rstudio container:
 
-    docker run -it -v $(pwd):/home/rstudio --name r_base jamamel/jama_r-base:3.6.
+    docker run -it -v $(pwd):/home/rstudio --name r_base jamamel/jama_r-base:3.6.3
 
 
 #### Access a root shell for a running `jama_r-base` container instance
