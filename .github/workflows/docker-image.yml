@@ -11,25 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-<<<<<<< HEAD
-      # checkout latest commit using checkout version 2.0
+
     - uses: actions/checkout@v2
+    
     - name: Build the Docker image
-#      run: docker build . --file hw_dockerfile --tag jamamel/test1
-    - run: docker build . --file dockerfile --tag jamamel/jama_r-base:3.6.3
+      run: docker build . --file dockerfile --tag jamamel/jama_r-base:3.6.3
+    
     - name: Login to DockerHub Registry
       run: echo ${{ secrets.DOCKERHUB_PW }} | docker login -u ${{ secrets.DOCKERHUB_USR }} --password-stdin
+    
     - name: Push the tagged Docker image
       run: docker push jamamel/jama_r-base:3.6.3
-=======
-      - uses: actions/checkout@v1
-      
-      - name: Build the Docker image
-        run: docker build . --file hw_dockerfile --tag jamamel/test1
-        
-      - name: Login to DockerHub Registry
-        run: echo ${{ secrets.DOCKERHUB_PW }} | docker login -u ${{ secrets.DOCKERHUB_USR }} --password-stdin
-    
-      - name: Push the tagged Docker image
-        run: docker push jamamel/test1
->>>>>>> 8a255d9a75bec770a317a714d7b618822767b3d6
