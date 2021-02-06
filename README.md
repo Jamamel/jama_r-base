@@ -25,7 +25,7 @@ Link a local volume (in this example, the current working directory, `$(pwd)`) t
     docker run -it -v $(pwd):/home/rstudio --name r_base jamamel/jama_r-base:3.6.
 
 
-#### Access a root shell for a running `rstudio` container instance
+#### Access a root shell for a running `jama_r-base` container instance
 
 First, determine the name or id of your container (unless you provided a `--name` to `docker run`) using `docker ps`.  You need just enough of the hash id to be unique, e.g. the first 3 letters/numbers.  Then exec into the container for an interactive session:
 
