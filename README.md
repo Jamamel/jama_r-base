@@ -1,3 +1,5 @@
+![Build Push jama_r-base v3.6.3](https://github.com/Jamamel/jama_r-base/workflows/Build%20Push%20jama_r-base%20v3.6.3/badge.svg)
+
 **Note**: This image is based on RStudio's: [rocker/r-ver](https://github.com/rocker-org/rocker-versioned) and underlying images.
 
 **Note**: See the rocker-org/rocker-versioned2 repo for Dockerfile recipes for R >= 4.0.0
