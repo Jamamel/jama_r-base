@@ -8,7 +8,7 @@ LABEL org.label-schema.license="GPL-2.0" \
 ARG R_VERSION
 ARG BUILD_DATE
 ARG CRAN
-ENV BUILD_DATE ${BUILD_DATE:-2020-04-24}
+ENV BUILD_DATE ${BUILD_DATE:-2021-01-01}
 ENV R_VERSION=${R_VERSION:-3.6.3} \
     CRAN=${CRAN:-https://cran.rstudio.com} \ 
     LC_ALL=en_US.UTF-8 \
@@ -113,7 +113,8 @@ RUN apt-get update \
   && echo "R_LIBS=\${R_LIBS-'/usr/local/lib/R/site-library:/usr/local/lib/R/library:/usr/lib/R/library'}" >> /usr/local/lib/R/etc/Renviron \
   ## Set configured CRAN mirror
   && if [ -z "$BUILD_DATE" ]; then MRAN=$CRAN; \
-   else MRAN=https://mran.microsoft.com/snapshot/${BUILD_DATE}; fi \
+   else MRAN=https://cloud.r-project.org; fi \
+  ## else MRAN=https://mran.microsoft.com/snapshot/${BUILD_DATE}; fi \
    && echo MRAN=$MRAN >> /etc/environment \
   && echo "options(repos = c(CRAN='$MRAN'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site \
   ## Use littler installation scripts
@@ -143,6 +144,8 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libssl-dev \
   zlib1g-dev \
   libpoppler-cpp-dev \
+  libgit2-dev \
+  libv8-dev \
 # install Java (dependencies for rJava)
   default-jre \
   default-jdk  \
