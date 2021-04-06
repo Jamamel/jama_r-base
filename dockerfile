@@ -146,6 +146,7 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libpoppler-cpp-dev \
   libgit2-dev \
   libv8-dev \
+  libsodium-dev \
 # install Java (dependencies for rJava)
   default-jre \
   default-jdk  \
