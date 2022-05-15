@@ -147,6 +147,7 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libgit2-dev \
   libv8-dev \
   libsodium-dev \
+  cmake \
 # install Java (dependencies for rJava)
   default-jre \
   default-jdk  \
